@@ -1,4 +1,5 @@
 #!/bin/bash
 
 printenv
-echo This also works in a bash script! ${{ runner.os }}
+echo Running on actions ${GITHUB_ACTIONS}
+echo The same does not  work in a bash script! All caps and . to _ ${RUNNER_OS}
