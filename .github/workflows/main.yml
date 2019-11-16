@@ -9,6 +9,10 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
+        include:
+          - os: ubuntu-latest
+            homepath: $HOME
+            homepath-quotes: '$HOME'
 
     steps:
     - uses: actions/checkout@v1
@@ -20,6 +24,8 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         echo ${{ runner.os }}
+        echo Home: ${{ homepath }}
+        echo Home quoted: ${{ homepath-quotes }}
         
     - name: Run a shell script
       run: .github/workflows/runner-os.sh
